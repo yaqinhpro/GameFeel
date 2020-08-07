@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour {
 
-    public float offset;
+    public AudioSource shootSound;
 
     public GameObject projectile;
     public GameObject shotEffect;
@@ -23,6 +23,8 @@ public class Weapon : MonoBehaviour {
                 Instantiate(shotEffect, shotPoint.position, Quaternion.identity);
                 camAnim.SetTrigger("shake");
                 Instantiate(projectile, shotPoint.position, Quaternion.FromToRotation(Vector3.up, Vector3.right));
+                shootSound.Play();
+
                 timeBtwShots = startTimeBtwShots;
             }
         }
