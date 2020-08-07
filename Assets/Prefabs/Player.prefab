@@ -412,6 +412,7 @@ MonoBehaviour:
   weapon: {fileID: 153794195945641741}
   speed: 20
   startTimeBtwShots: 0.25
+  shootKickOffset: 0.3
 --- !u!50 &153794196253650693
 Rigidbody2D:
   serializedVersion: 4

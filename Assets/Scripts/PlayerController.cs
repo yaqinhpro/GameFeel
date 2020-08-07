@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour {
     private float timeBtwShots = 0;
     public float startTimeBtwShots = 0.25f;
 
+    public float shootKickOffset = 0.3f;
+    private Vector3 shootDirection = Vector3.right;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -37,6 +40,7 @@ public class PlayerController : MonoBehaviour {
             if (Input.GetMouseButton(0))
             {
                 weapon.Fire();
+                transform.position += -1 * shootDirection * shootKickOffset;
 
                 timeBtwShots = startTimeBtwShots;
             }
@@ -51,4 +55,6 @@ public class PlayerController : MonoBehaviour {
     {
         rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
     }
+
+
 }
