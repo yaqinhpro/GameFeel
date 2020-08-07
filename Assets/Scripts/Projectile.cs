@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour {
+public class Projectile : MonoBehaviour
+{
 
     public float speed;
     public float lifeTime;
@@ -20,8 +21,10 @@ public class Projectile : MonoBehaviour {
     private void Update()
     {
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, whatIsSolid);
-        if (hitInfo.collider != null) {
-            if (hitInfo.collider.CompareTag("Enemy")) {
+        if (hitInfo.collider != null)
+        {
+            if (hitInfo.collider.CompareTag("Enemy"))
+            {
                 hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
             }
             DestroyProjectile();
@@ -31,7 +34,8 @@ public class Projectile : MonoBehaviour {
         transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
 
-    void DestroyProjectile() {
+    void DestroyProjectile()
+    {
         Instantiate(destroyEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

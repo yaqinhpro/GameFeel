@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
     public Weapon weapon;
     private Rigidbody2D rb;
     private Animator anim;
@@ -31,7 +32,8 @@ public class PlayerController : MonoBehaviour {
         {
             anim.SetBool("isRunning", true);
         }
-        else {
+        else
+        {
             anim.SetBool("isRunning", false);
         }
 
