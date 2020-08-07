@@ -583,7 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camAnim: {fileID: 0}
-  health: 5
+  health: 2
   deathEffect: {fileID: 1110264763428426, guid: 443a8ba800c81734c8f77d26b1b07fdf,
     type: 3}
   explosion: {fileID: 1682124166123736, guid: 844796abb46e53b4484cb9b765192e80, type: 3}
