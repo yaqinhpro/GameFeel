@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-
+    public Weapon weapon;
     private Rigidbody2D rb;
     private Animator anim;
 
     private Vector2 moveVelocity;
     public float speed;
+
+    private float timeBtwShots = 0;
+    public float startTimeBtwShots = 0.25f;
 
     private void Start()
     {
@@ -27,6 +30,20 @@ public class PlayerController : MonoBehaviour {
         }
         else {
             anim.SetBool("isRunning", false);
+        }
+
+        if (timeBtwShots <= 0)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                weapon.Fire();
+
+                timeBtwShots = startTimeBtwShots;
+            }
+        }
+        else
+        {
+            timeBtwShots -= Time.deltaTime;
         }
     }
 

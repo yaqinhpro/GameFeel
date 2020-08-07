@@ -184,7 +184,6 @@ MonoBehaviour:
   shotEffect: {fileID: 1682124166123736, guid: 844796abb46e53b4484cb9b765192e80, type: 3}
   shotPoint: {fileID: 153794197312222658}
   camAnim: {fileID: 0}
-  startTimeBtwShots: 0.25
 --- !u!82 &8957041932550599779
 AudioSource:
   m_ObjectHideFlags: 0
@@ -410,7 +409,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c7f216c823db94eb2b3309472fad20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 153794195945641741}
   speed: 20
+  startTimeBtwShots: 0.25
 --- !u!50 &153794196253650693
 Rigidbody2D:
   serializedVersion: 4

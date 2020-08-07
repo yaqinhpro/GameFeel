@@ -11,27 +11,11 @@ public class Weapon : MonoBehaviour {
     public Transform shotPoint;
     public Animator camAnim;
 
-    private float timeBtwShots;
-    public float startTimeBtwShots;
-
-    private void Update()
+    public void Fire()
     {
-        if (timeBtwShots <= 0)
-        {
-            if (Input.GetMouseButton(0))
-            {
-                Instantiate(shotEffect, shotPoint.position, Quaternion.identity);
-                camAnim.SetTrigger("shake");
-                Instantiate(projectile, shotPoint.position, Quaternion.FromToRotation(Vector3.up, Vector3.right));
-                shootSound.Play();
-
-                timeBtwShots = startTimeBtwShots;
-            }
-        }
-        else {
-            timeBtwShots -= Time.deltaTime;
-        }
-
-       
+        Instantiate(shotEffect, shotPoint.position, Quaternion.identity);
+        camAnim.SetTrigger("shake");
+        Instantiate(projectile, shotPoint.position, Quaternion.FromToRotation(Vector3.up, Vector3.right));
+        shootSound.Play();
     }
 }
