@@ -416,7 +416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 153794195945641741}
   jumpSound: {fileID: 1354468310700568567}
-  speed: 8
+  speed: 12
   jumpForce: 50
   groundCheck: {fileID: 3458845185410538244}
   ground:

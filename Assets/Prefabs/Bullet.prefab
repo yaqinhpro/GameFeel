@@ -101,6 +101,6 @@ MonoBehaviour:
   randomDirectAngle: 4
   whatIsSolid:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 1280
   destroyEffect: {fileID: 1657798570406232, guid: 816b2e55a22aea04597fe7990ad0d333,
     type: 3}
