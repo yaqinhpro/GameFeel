@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
 
     public float speed;
     public float lifeTime;
     public float distance;
     public int damage;
+    public float randomDirectAngle = 4.0f;
     public LayerMask whatIsSolid;
 
     public GameObject destroyEffect;
@@ -16,6 +17,7 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         Invoke("DestroyProjectile", lifeTime);
+        transform.Rotate(new Vector3(0, 0, Random.Range(-randomDirectAngle, randomDirectAngle)), Space.World);
     }
 
     private void Update()

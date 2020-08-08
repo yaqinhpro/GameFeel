@@ -10,12 +10,10 @@ public class Weapon : MonoBehaviour
     public GameObject projectile;
     public GameObject shotEffect;
     public Transform shotPoint;
-    public Animator camAnim;
 
     public void Fire(float fireDirection)
     {
         Instantiate(shotEffect, shotPoint.position, Quaternion.identity);
-        camAnim.SetTrigger("shake");
         Instantiate(projectile, shotPoint.position, Quaternion.FromToRotation(Vector3.up, fireDirection * Vector3.right));
         shootSound.Play();
     }

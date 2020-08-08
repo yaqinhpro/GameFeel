@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 212578740516415340}
   - component: {fileID: 114312984765984224}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1927733496957370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.762939, y: 4.8724647, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 0.5, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -94,12 +94,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29848dd811b33f74ba4123e97fcad32f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 80
-  lifeTime: 2
+  speed: 120
+  lifeTime: 5
   distance: 10
   damage: 1
+  randomDirectAngle: 4
   whatIsSolid:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   destroyEffect: {fileID: 1657798570406232, guid: 816b2e55a22aea04597fe7990ad0d333,
     type: 3}
