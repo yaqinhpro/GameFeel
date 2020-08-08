@@ -180,10 +180,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootSound: {fileID: 8957041932550599779}
-  projectile: {fileID: 1927733496957370, guid: c1b11ef703edbf14cbc881fc63e6074c, type: 3}
+  bulletPrefab: {fileID: 1927733496957370, guid: c1b11ef703edbf14cbc881fc63e6074c,
+    type: 3}
   shotEffect: {fileID: 1682124166123736, guid: 844796abb46e53b4484cb9b765192e80, type: 3}
   shotPoint: {fileID: 153794197312222658}
-  camAnim: {fileID: 0}
 --- !u!82 &8957041932550599779
 AudioSource:
   m_ObjectHideFlags: 0
@@ -422,7 +422,7 @@ MonoBehaviour:
   isGround: 0
   isJump: 0
   isDashing: 0
-  startTimeBtwShots: 0.25
+  startTimeBtwShots: 0.1
   shootKickOffset: 0.3
 --- !u!50 &153794196253650693
 Rigidbody2D:

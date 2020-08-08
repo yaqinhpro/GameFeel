@@ -60,28 +60,19 @@ public class PlayerController : MonoBehaviour
         isGround = Physics2D.OverlapCircle(groundCheck.position, 1.5f, ground);
 
         GroundMovement();
-
         Jump();
-
         SwitchAnim();
     }
 
     void GroundMovement()
     {
         moveDirection = Input.GetAxisRaw("Horizontal");
-
         if ((moveDirection == 1) || (moveDirection == -1))
         {
             faceDirection = moveDirection;
-        }
-
-        rb.velocity = new Vector2(moveDirection * speed, rb.velocity.y);
-
-        if (moveDirection != 0)
-        {
+            rb.velocity = new Vector2(moveDirection * speed, rb.velocity.y);
             transform.localScale = new Vector3(moveDirection, 1, 1);
         }
-
     }
 
     void Jump()

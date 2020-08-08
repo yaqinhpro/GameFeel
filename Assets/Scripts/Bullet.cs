@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        Invoke("DestroyProjectile", lifeTime);
+        Invoke("DestroyBullet", lifeTime);
         transform.Rotate(new Vector3(0, 0, Random.Range(-randomDirectAngle, randomDirectAngle)), Space.World);
     }
 
@@ -29,14 +29,14 @@ public class Bullet : MonoBehaviour
             {
                 hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
             }
-            DestroyProjectile();
+            DestroyBullet();
         }
 
 
         transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
 
-    void DestroyProjectile()
+    void DestroyBullet()
     {
         Instantiate(destroyEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);

@@ -12,19 +12,13 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i=0; i < targetSpawnPoints.Count; i++)
+        for (int i = 0; i < targetSpawnPoints.Count; i++)
         {
-            for(int j=0; j < spawnNumberPerRound; j++)
+            for (int j = 0; j < spawnNumberPerRound; j++)
             {
                 GameObject enemy = Instantiate(enemyPrefab, targetSpawnPoints[i].position, Quaternion.identity);
                 enemy.GetComponent<Enemy>().target = enemyTarget;
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
