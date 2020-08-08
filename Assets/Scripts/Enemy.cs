@@ -11,16 +11,24 @@ public class Enemy : MonoBehaviour
     public GameObject deathEffectPrefab;
     public GameObject explosionPrefab;
 
+    private bool isDead;
     private Rigidbody2D rb;
+    private BoxCollider2D bc;
+    private Animator anim;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        bc = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
     {
-        Movement();
+        if (!isDead)
+        {
+            Movement();
+        }
     }
 
     void Movement()
@@ -28,19 +36,30 @@ public class Enemy : MonoBehaviour
         int moveDirection = transform.position.x < target.position.x? 1 : -1;
         rb.velocity = new Vector2(moveDirection * speed, rb.velocity.y);
         transform.localScale = new Vector3(moveDirection, 1, 1);
+
+        anim.SetBool("isMoving", true);
     }
 
     public void TakeDamage(int damage)
     {
-        GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-        Destroy(explosion, 0.5f);
-        health -= damage;
-
-        if (health <= 0)
+        if (!isDead)
         {
-            GameObject deathEffect = Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
-            Destroy(deathEffect, 0.5f);
-            Destroy(gameObject);
+            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(explosion, 0.5f);
+            health -= damage;
+
+            if (health <= 0)
+            {
+                isDead = true;
+                rb.isKinematic = true;
+                rb.velocity = new Vector2(0, 0);
+                bc.enabled = false;
+                GameObject deathEffect = Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+                Destroy(deathEffect, 0.5f);
+
+                anim.SetBool("isMoving", false);
+                anim.Play(true? "LeftFallDeath" : "RightFallDeath");
+            }
         }
     }
 }

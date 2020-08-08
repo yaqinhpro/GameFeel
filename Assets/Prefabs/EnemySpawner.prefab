@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaeae8d7f4455974f8adca202ff45dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyTarget: {fileID: 0}
   enemyPrefab: {fileID: 8668654199569610835, guid: 19c120c876aea8242ad13316bd9e417a,
     type: 3}
-  targetSpawnPoint: []
+  targetSpawnPoints: []
+  spawnNumberPerRound: 5
