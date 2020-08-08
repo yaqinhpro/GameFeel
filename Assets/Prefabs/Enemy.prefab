@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8668654198355129472}
   - component: {fileID: 8668654198355129473}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Arm Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8668654198772005745}
   - component: {fileID: 8668654198772005746}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8668654199075163072}
   - component: {fileID: 8668654199075163073}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Leg Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8668654199095495995}
   - component: {fileID: 8668654199095495996}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Arm Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8668654199143581834}
   - component: {fileID: 8668654199143581835}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8668654199388733442}
   - component: {fileID: 8668654199388733443}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Leg Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 8668654199569610832}
   - component: {fileID: 8631246448010066666}
   - component: {fileID: 8668654199569610831}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -604,7 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3662493f6188c4c95105ceea92ffe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGround: 0
+  target: {fileID: 0}
   speed: 5
   health: 2
   deathEffect: {fileID: 1110264763428426, guid: 443a8ba800c81734c8f77d26b1b07fdf,

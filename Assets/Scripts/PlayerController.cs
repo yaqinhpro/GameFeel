@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D coll;
     private Animator anim;
+    public AudioSource jumpSound;
 
     public float speed;
     public float jumpForce;
@@ -84,6 +85,8 @@ public class PlayerController : MonoBehaviour
         }
         if (jumpPressed && isGround)
         {
+            jumpSound.Play();
+
             isJump = true;
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             jumpCount--;
