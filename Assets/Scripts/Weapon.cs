@@ -9,12 +9,12 @@ public class Weapon : MonoBehaviour
 
     public int bulletNumPerFire = 3;
     public GameObject bulletPrefab;
-    public GameObject shotEffect;
+    public GameObject muzzleFlashPrefab;
     public Transform shotPoint;
 
     public void Fire(float fireDirection)
     {
-        Instantiate(shotEffect, shotPoint.position, Quaternion.identity);
+        GameObject muzzleFlash = Instantiate(muzzleFlashPrefab, shotPoint.position, Quaternion.identity);
 
         for (int i = 0; i < bulletNumPerFire; i++)
         {
@@ -22,5 +22,7 @@ public class Weapon : MonoBehaviour
         }
 
         shootSound.Play();
+
+        Destroy(muzzleFlash, 0.2f);
     }
 }
