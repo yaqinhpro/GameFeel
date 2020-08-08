@@ -467,6 +467,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 410561244}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &509160180 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 153794196253650690, guid: f91c3cab590bfc7459349d52c68540e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 153794197453715824}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &517143986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2139,6 +2145,11 @@ PrefabInstance:
       propertyPath: targetSpawnPoints.Array.data[1]
       value: 
       objectReference: {fileID: 544639366}
+    - target: {fileID: 8064307841619898676, guid: 179a69bcfdae4e646b7f0978d29f1180,
+        type: 3}
+      propertyPath: enemyTarget
+      value: 
+      objectReference: {fileID: 509160180}
     - target: {fileID: 8629569536560429331, guid: 179a69bcfdae4e646b7f0978d29f1180,
         type: 3}
       propertyPath: m_LocalPosition.x
