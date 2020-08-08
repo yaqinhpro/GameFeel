@@ -9,18 +9,21 @@ public class PlayerController : MonoBehaviour
     private Collider2D coll;
     private Animator anim;
 
-    public float speed, jumpForce;
-    private float horizontalMove;
+    public float speed;
+    public float jumpForce;
     public Transform groundCheck;
     public LayerMask ground;
-    public bool isGround, isJump, isDashing;
-    bool jumpPressed;
-    int jumpCount;
+    public bool isGround;
+    public bool isJump;
+    public bool isDashing;
+    private bool jumpPressed;
+    private int jumpCount;
 
     private float timeBtwShots = 0;
     public float startTimeBtwShots = 0.25f;
     public float shootKickOffset = 0.3f;
-    private Vector3 shootDirection = Vector3.right;
+    private float faceDirection = 1;
+    private float moveDirection = 1;
 
     private void Start()
     {
@@ -40,8 +43,8 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                weapon.Fire();
-                transform.position += -1 * shootDirection * shootKickOffset;
+                weapon.Fire(faceDirection);
+                transform.position += moveDirection * Vector3.one * shootKickOffset;
 
                 timeBtwShots = startTimeBtwShots;
             }
@@ -65,12 +68,18 @@ public class PlayerController : MonoBehaviour
 
     void GroundMovement()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal");//只返回-1，0，1
-        rb.velocity = new Vector2(horizontalMove * speed, rb.velocity.y);
+        moveDirection = Input.GetAxisRaw("Horizontal");
 
-        if (horizontalMove != 0)
+        if ((moveDirection == 1) || (moveDirection == -1))
         {
-            transform.localScale = new Vector3(horizontalMove, 1, 1);
+            faceDirection = moveDirection;
+        }
+
+        rb.velocity = new Vector2(moveDirection * speed, rb.velocity.y);
+
+        if (moveDirection != 0)
+        {
+            transform.localScale = new Vector3(moveDirection, 1, 1);
         }
 
     }
