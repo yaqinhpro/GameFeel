@@ -414,7 +414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 153794195945641741}
   speed: 7
-  jumpForce: 15
+  jumpForce: 30
   groundCheck: {fileID: 3458845185410538244}
   ground:
     serializedVersion: 2
