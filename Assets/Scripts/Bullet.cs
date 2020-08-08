@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     public float randomDirectAngle = 4.0f;
     public LayerMask whatIsSolid;
 
-    public GameObject destroyEffect;
+    public GameObject destroyEffectPrefab;
 
     private void Start()
     {
@@ -38,7 +38,8 @@ public class Bullet : MonoBehaviour
 
     void DestroyBullet()
     {
-        Instantiate(destroyEffect, transform.position, Quaternion.identity);
+        GameObject destoryEffect = Instantiate(destroyEffectPrefab, transform.position, Quaternion.identity);
+        Destroy(destoryEffect, 0.1f);
         Destroy(gameObject);
     }
 }

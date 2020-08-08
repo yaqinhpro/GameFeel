@@ -8,8 +8,8 @@ public class Enemy : MonoBehaviour
     public float speed;
 
     public int health;
-    public GameObject deathEffect;
-    public GameObject explosion;
+    public GameObject deathEffectPrefab;
+    public GameObject explosionPrefab;
 
     private Rigidbody2D rb;
 
@@ -32,12 +32,14 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Instantiate(explosion, transform.position, Quaternion.identity);
+        GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(explosion, 0.5f);
         health -= damage;
 
         if (health <= 0)
         {
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
+            GameObject deathEffect = Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+            Destroy(deathEffect, 0.5f);
             Destroy(gameObject);
         }
     }
