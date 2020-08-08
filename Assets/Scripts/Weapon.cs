@@ -9,8 +9,10 @@ public class Weapon : MonoBehaviour
 
     public int bulletNumPerFire = 3;
     public GameObject bulletPrefab;
+    public GameObject usedBulletPrefab;
     public GameObject muzzleFlashPrefab;
     public Transform shotPoint;
+    public Transform usedBulletShotPoint;
 
     public void Fire(float fireDirection)
     {
@@ -20,6 +22,9 @@ public class Weapon : MonoBehaviour
         {
             Instantiate(bulletPrefab, shotPoint.position, Quaternion.FromToRotation(Vector3.up, fireDirection * Vector3.right));
         }
+
+        GameObject usedBullet = Instantiate(usedBulletPrefab, usedBulletShotPoint.position, Quaternion.FromToRotation(Vector3.up, -fireDirection * Vector3.right));
+        usedBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(-fireDirection, 4));
 
         shootSound.Play();
 
