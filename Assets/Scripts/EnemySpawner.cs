@@ -16,7 +16,8 @@ public class EnemySpawner : MonoBehaviour
         {
             for(int j=0; j < spawnNumberPerRound; j++)
             {
-                Instantiate(enemyPrefab, targetSpawnPoints[i].position, Quaternion.identity);
+                GameObject enemy = Instantiate(enemyPrefab, targetSpawnPoints[i].position, Quaternion.identity);
+                enemy.GetComponent<Enemy>().target = enemyTarget;
             }
         }
     }

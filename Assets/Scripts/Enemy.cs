@@ -4,9 +4,31 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public Transform target;
+    public float speed;
+
     public int health;
     public GameObject deathEffect;
     public GameObject explosion;
+
+    private Rigidbody2D rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void FixedUpdate()
+    {
+        Movement();
+    }
+
+    void Movement()
+    {
+        int moveDirection = (Vector3.Angle((transform.position - target.position), Vector3.right) > 90)? 1 : -1;
+        rb.velocity = new Vector2(moveDirection * speed, rb.velocity.y);
+        transform.localScale = new Vector3(moveDirection, 1, 1);
+    }
 
     public void TakeDamage(int damage)
     {
