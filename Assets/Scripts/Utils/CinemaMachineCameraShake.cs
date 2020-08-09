@@ -14,22 +14,17 @@ public class CinemaMachineCameraShake : MonoBehaviour
 
     private float ShakeElapsedTime = 0f;
 
-    // Cinemachine Shake
     public CinemachineVirtualCamera VirtualCamera;
     private CinemachineBasicMultiChannelPerlin virtualCameraNoise;
 
-    // Use this for initialization
     void Start()
     {
-        // Get Virtual Camera Noise Profile
         if (VirtualCamera != null)
             virtualCameraNoise = VirtualCamera.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // TODO: Replace with your trigger
         if (startShake)
         {
             ShakeElapsedTime = ShakeDuration;
