@@ -6,6 +6,14 @@ public class TimeManager : MonoBehaviour
 {
     public float slowdownFactor = 0.01f;
 
+    private void Start()
+    {
+        if (Time.timeScale != 1)
+        {
+            ReturnToNormal();
+        }
+    }
+
     public void SlowMotion()
     {
         Time.timeScale = slowdownFactor;

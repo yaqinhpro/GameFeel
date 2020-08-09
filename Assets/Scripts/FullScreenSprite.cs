@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FullScreenSprite : MonoBehaviour
 {
@@ -22,5 +24,10 @@ public class FullScreenSprite : MonoBehaviour
 
         transform.position = Vector2.zero; // Optional
         transform.localScale = scale;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }
