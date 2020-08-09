@@ -6,8 +6,6 @@ using UnityEngine.Events;
 
 public class CinemaMachineCameraShake : MonoBehaviour
 {
-    public bool startShake = false;
-
     public float ShakeDuration = 0.3f;          // Time the Camera Shake effect will last
     public float ShakeAmplitude = 1.2f;         // Cinemachine Noise Profile Parameter
     public float ShakeFrequency = 2.0f;         // Cinemachine Noise Profile Parameter
@@ -16,11 +14,12 @@ public class CinemaMachineCameraShake : MonoBehaviour
 
     public CinemachineVirtualCamera VirtualCamera;
     private CinemachineBasicMultiChannelPerlin virtualCameraNoise;
+    private bool startShake = false;
 
     void Start()
     {
         if (VirtualCamera != null)
-            virtualCameraNoise = VirtualCamera.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>();
+            virtualCameraNoise = VirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
     void Update()
@@ -51,5 +50,10 @@ public class CinemaMachineCameraShake : MonoBehaviour
                 ShakeElapsedTime = 0f;
             }
         }
+    }
+
+    public void Shake()
+    {
+        startShake = true;
     }
 }

@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
 
-    public AudioSource shootSound;
+    public AudioSource fireSound;
 
     public int bulletNumPerFire = 3;
     public GameObject bulletPrefab;
@@ -14,9 +15,9 @@ public class Weapon : MonoBehaviour
     public Transform shotPoint;
     public Transform usedBulletShotPoint;
 
-    public CinemaMachineCameraShake cameraShake;
-
     private Animator animator;
+
+    public event EventHandler OnWeaponFired;
 
     private void Start()
     {
@@ -36,8 +37,8 @@ public class Weapon : MonoBehaviour
         usedBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(-fireDirection, 4));
 
         animator.Play("Fire");
-        shootSound.Play();
-        cameraShake.startShake = true;
+        fireSound.Play();
+        OnWeaponFired.Invoke(this, EventArgs.Empty);
 
         Destroy(muzzleFlash, 0.2f);
     }
