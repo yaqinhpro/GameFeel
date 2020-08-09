@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
     void Movement()
     {
         int moveDirection = transform.position.x < target.position.x? 1 : -1;
-        rigidBody.velocity = new Vector2(moveDirection * speed, rigidBody.velocity.y);
+        rigidBody.velocity = new Vector2(moveDirection * speed, 0);
         transform.localScale = new Vector3(-moveDirection, 1, 1);
 
         animator.SetBool("isMoving", true);
