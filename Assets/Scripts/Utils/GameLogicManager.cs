@@ -7,7 +7,7 @@ public class GameLogicManager : MonoBehaviour
     public TimeManager timeManager;
     public AudioManager audioManager;
     public CinemaMachineCameraShake cameraShake;
-    public PlayerController player;
+    public Player player;
 
     void Start()
     {
