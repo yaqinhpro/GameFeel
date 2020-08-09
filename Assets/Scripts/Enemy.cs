@@ -40,12 +40,16 @@ public class Enemy : MonoBehaviour
         anim.SetBool("isMoving", true);
     }
 
-    public void TakeDamage(int damage, int hitterDirection)
+    public void TakeDamage(int damage, int hitterDirection, bool isExplosion)
     {
         if (!isDead)
         {
-            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(explosion, 0.5f);
+            if (isExplosion)
+            {
+                GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+                Destroy(explosion, 0.5f);
+            }
+
             health -= damage;
 
             if (health <= 0)

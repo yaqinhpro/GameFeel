@@ -26,8 +26,10 @@ public class Bullet : MonoBehaviour
         {
             if (hitInfo.collider.CompareTag("Enemy"))
             {
-                hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage, transform.rotation.eulerAngles.z > 180? 1 : -1);
+                int finalDanamge = Random.Range(1, 5) == 3? 2 * damage : damage;
+                hitInfo.collider.GetComponent<Enemy>().TakeDamage(finalDanamge, transform.rotation.eulerAngles.z > 180? 1 : -1, finalDanamge == (2 * damage));
             }
+
             DestroyBullet();
         }
 
