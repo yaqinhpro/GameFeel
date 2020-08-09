@@ -62,7 +62,6 @@ public class PlayerController : MonoBehaviour
 
         GroundMovement();
         Jump();
-        SwitchAnim();
     }
 
     void GroundMovement()
@@ -73,6 +72,12 @@ public class PlayerController : MonoBehaviour
             faceDirection = moveDirection;
             rb.velocity = new Vector2(moveDirection * speed, rb.velocity.y);
             transform.localScale = new Vector3(moveDirection, 1, 1);
+
+            anim.SetBool("isRunning", true);
+        }
+        else
+        {
+            anim.SetBool("isRunning", false);
         }
     }
 
@@ -97,18 +102,6 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             jumpCount--;
             jumpPressed = false;
-        }
-    }
-
-    void SwitchAnim()
-    {
-        if (isGround && (rb.velocity.x != 0))
-        {
-            anim.SetBool("isRunning", true);
-        }
-        else
-        {
-            anim.SetBool("isRunning", false);
         }
     }
 }
