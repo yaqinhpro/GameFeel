@@ -14,6 +14,8 @@ public class Weapon : MonoBehaviour
     public Transform shotPoint;
     public Transform usedBulletShotPoint;
 
+    public CinemaMachineCameraShake cameraShake;
+
     private Animator anim;
 
     private void Start()
@@ -35,6 +37,7 @@ public class Weapon : MonoBehaviour
 
         anim.Play("Fire");
         shootSound.Play();
+        cameraShake.startShake = true;
 
         Destroy(muzzleFlash, 0.2f);
     }
