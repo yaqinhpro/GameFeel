@@ -356,7 +356,7 @@ MonoBehaviour:
   isGround: 0
   isJump: 0
   isDashing: 0
-  health: 3
+  health: 5
   startTimeBtwShots: 0.1
   shootKickOffset: 0.3
 --- !u!50 &153794196253650693
