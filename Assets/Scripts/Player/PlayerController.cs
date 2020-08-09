@@ -1,13 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public Weapon weapon;
-    private Rigidbody2D rigidBody;
-    private Animator animator;
     public AudioSource jumpSound;
     public AudioSource hurtSound;
 
@@ -26,8 +22,14 @@ public class PlayerController : MonoBehaviour
     private float timeBtwShots = 0;
     public float startTimeBtwShots = 0.25f;
     public float shootKickOffset = 0.3f;
+
     private float faceDirection = 1;
     private float moveDirection = 1;
+
+    private Rigidbody2D rigidBody;
+    private Animator animator;
+
+    public event EventHandler OnPlayerDied;
 
     private void Start()
     {
@@ -60,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        isGround = Physics2D.OverlapCircle(groundCheck.position, 1.5f, ground);
+        isGround = Physics2D.OverlapCircle(groundCheck.position, Mathf.Abs(groundCheck.localPosition.y), ground);
 
         GroundMovement();
         Jump();
@@ -130,14 +132,6 @@ public class PlayerController : MonoBehaviour
 
     private void RestInPeace()
     {
-        GameObject.Find("TimeManager").GetComponent<TimeManager>().SlowMotion();
-        //gameOverSound.Play();
-        //StartCoroutine(WaitForSound(gameOverSound.clip));
+        OnPlayerDied.Invoke(this, EventArgs.Empty);
     }
-
-    /*public IEnumerator WaitForSound(AudioClip Sound)
-    {
-        yield return new WaitUntil(() => gameOverSound.isPlaying == false);
-        SceneManager.LoadScene(1);
-    }*/
 }
