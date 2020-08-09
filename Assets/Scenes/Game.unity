@@ -491,12 +491,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1802774358ed87d4199792d29d8ed6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &509160180 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 153794196253650690, guid: f91c3cab590bfc7459349d52c68540e8,
-    type: 3}
-  m_PrefabInstance: {fileID: 153794197453715824}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &517143986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2503,7 +2497,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyTarget
       value: 
-      objectReference: {fileID: 509160180}
+      objectReference: {fileID: 625950796}
     - target: {fileID: 8629569536560429331, guid: 179a69bcfdae4e646b7f0978d29f1180,
         type: 3}
       propertyPath: m_LocalPosition.x

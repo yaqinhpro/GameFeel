@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public Transform target;
+    public Player target;
     public GameObject deathEffectPrefab;
     public GameObject explosionPrefab;
 
@@ -16,9 +17,12 @@ public class Enemy : MonoBehaviour
 
     private bool isDead = false;
     private float waitCounter = 0;
+    private bool stopDieInPeace = false;
 
     private void Start()
     {
+        target.OnPlayerDied += Event_OnPlayerDied;
+
         rigidBody = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
@@ -34,7 +38,7 @@ public class Enemy : MonoBehaviour
 
     private void Movement()
     {
-        int moveDirection = transform.position.x < target.position.x? 1 : -1;
+        int moveDirection = transform.position.x < target.transform.position.x? 1 : -1;
         rigidBody.velocity = new Vector2(moveDirection * speed, 0);
         transform.localScale = new Vector3(-moveDirection, 1, 1);
 
@@ -72,7 +76,10 @@ public class Enemy : MonoBehaviour
         animator.SetBool("isMoving", false);
         animator.Play(hitterDirection > 0 ? "RightFallDeath" : "LeftFallDeath");
 
-        StartCoroutine(DieInPeace());
+        if (!stopDieInPeace)
+        {
+            StartCoroutine(DieInPeace());
+        }
     }
 
     private IEnumerator DieInPeace()
@@ -88,5 +95,10 @@ public class Enemy : MonoBehaviour
         }
 
         Time.timeScale = 1;
+    }
+
+    private void Event_OnPlayerDied(object sender, EventArgs e)
+    {
+        stopDieInPeace = true;
     }
 }

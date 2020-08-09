@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public Transform enemyTarget;
+    public Player enemyTarget;
     public GameObject enemyPrefab;
     public List<Transform> targetSpawnPoints;
     public int spawnNumPerRound = 5;
