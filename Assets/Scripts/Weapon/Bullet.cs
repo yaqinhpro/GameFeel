@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     public float distance;
     public int damage;
     public float randomDirectAngle = 4.0f;
-    public LayerMask whatIsSolid;
+    public LayerMask targetLayer;
 
     public GameObject destroyEffectPrefab;
 
@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, whatIsSolid);
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, targetLayer);
         if (hitInfo.collider != null)
         {
             if (hitInfo.collider.CompareTag("Enemy"))
