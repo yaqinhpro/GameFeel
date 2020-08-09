@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = kickVelocity;
         hurtSound.Play();
-        anim.Play("hurt");
+        anim.Play("Hurt");
         health -= 1;
 
         if (health == 0)
