@@ -99,7 +99,7 @@ MonoBehaviour:
   distance: 10
   damage: 1
   randomDirectAngle: 4
-  whatIsSolid:
+  targetLayer:
     serializedVersion: 2
     m_Bits: 1280
   destroyEffectPrefab: {fileID: 1657798570406232, guid: 816b2e55a22aea04597fe7990ad0d333,
