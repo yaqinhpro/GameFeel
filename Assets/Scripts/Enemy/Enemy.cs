@@ -4,17 +4,17 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public Transform target;
-    public float speed;
-
-    public int health;
     public GameObject deathEffectPrefab;
     public GameObject explosionPrefab;
 
-    private bool isDead;
+    public float speed = 5;
+    public int health = 2;
+
     private Rigidbody2D rigidBody;
     private BoxCollider2D boxCollider;
     private Animator animator;
 
+    private bool isDead = false;
     private float waitCounter = 0;
 
     private void Start()

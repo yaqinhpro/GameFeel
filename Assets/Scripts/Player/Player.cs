@@ -6,18 +6,17 @@ public class Player : MonoBehaviour
     public Weapon weapon;
     public AudioSource jumpSound;
     public AudioSource hurtSound;
-
-    public float speed;
-    public float jumpForce;
     public Transform groundCheck;
     public LayerMask ground;
-    public bool isGround;
-    public bool isJump;
-    public bool isDashing;
-    private bool jumpPressed;
-    private int jumpCount;
 
     public int health = 3;
+    public float speed = 12;
+    public float jumpForce = 50;
+    public bool isGround = false;
+    public bool isJump = false;
+    public bool isDashing = false;
+    private bool jumpPressed = false;
+    private int jumpCount = 0;
 
     private float timeBtwShots = 0;
     public float startTimeBtwShots = 0.25f;
