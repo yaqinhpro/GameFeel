@@ -347,16 +347,16 @@ MonoBehaviour:
   weapon: {fileID: 153794195945641741}
   jumpSound: {fileID: 8877079658302812536}
   hurtSound: {fileID: 7478150496528877054}
-  speed: 12
-  jumpForce: 50
   groundCheck: {fileID: 3458845185410538244}
   ground:
     serializedVersion: 2
     m_Bits: 1280
+  health: 5
+  speed: 12
+  jumpForce: 50
   isGround: 0
   isJump: 0
   isDashing: 0
-  health: 5
   startTimeBtwShots: 0.1
   shootKickOffset: 0.3
 --- !u!50 &153794196253650693
@@ -393,7 +393,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.6803932, y: 1.9110394}
+  m_Offset: {x: 1.7462902, y: 1.9110394}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -404,7 +404,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.039528, y: 7.589794}
+  m_Size: {x: 9.171322, y: 7.589794}
   m_EdgeRadius: 0
 --- !u!95 &153794196253650691
 Animator:

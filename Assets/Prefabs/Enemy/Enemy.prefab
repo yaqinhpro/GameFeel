@@ -558,7 +558,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.18560314, y: 1.3697853}
+  m_Offset: {x: 0.16120648, y: 1.3697853}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -569,7 +569,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.4878483, y: 5.660347}
+  m_Size: {x: 4.5366416, y: 5.660347}
   m_EdgeRadius: 0
 --- !u!50 &8631246448010066666
 Rigidbody2D:
@@ -604,11 +604,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3662493f6188c4c95105ceea92ffe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawner: {fileID: 0}
   target: {fileID: 0}
-  speed: 5
-  health: 2
   deathEffectPrefab: {fileID: 1110264763428426, guid: 443a8ba800c81734c8f77d26b1b07fdf,
     type: 3}
   explosionPrefab: {fileID: 1682124166123736, guid: 844796abb46e53b4484cb9b765192e80,
     type: 3}
+  speed: 5
+  health: 2
