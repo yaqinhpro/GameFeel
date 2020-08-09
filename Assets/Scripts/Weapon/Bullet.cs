@@ -2,10 +2,10 @@
 
 public class Bullet : MonoBehaviour
 {
-    public float speed;
-    public float lifeTime;
-    public float distance;
-    public int damage;
+    public float speed = 120;
+    public float lifeTime = 5;
+    public float distance = 10;
+    public int damage = 1;
     public float randomDirectAngle = 4.0f;
     public LayerMask targetLayer;
 
