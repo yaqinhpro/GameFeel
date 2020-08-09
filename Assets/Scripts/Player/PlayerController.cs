@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public Weapon weapon;
-    private Rigidbody2D rb;
-    private Collider2D coll;
-    private Animator anim;
+    private Rigidbody2D rigidBody;
+    private Animator animator;
     public AudioSource jumpSound;
     public AudioSource hurtSound;
     public AudioSource gameOverSound;
@@ -33,9 +32,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-        coll = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -75,14 +73,14 @@ public class PlayerController : MonoBehaviour
         if ((moveDirection == 1) || (moveDirection == -1))
         {
             faceDirection = moveDirection;
-            rb.velocity = new Vector2(moveDirection * speed, rb.velocity.y);
+            rigidBody.velocity = new Vector2(moveDirection * speed, rigidBody.velocity.y);
             transform.localScale = new Vector3(moveDirection, 1, 1);
 
-            anim.SetBool("isRunning", true);
+            animator.SetBool("isRunning", true);
         }
         else
         {
-            anim.SetBool("isRunning", false);
+            animator.SetBool("isRunning", false);
         }
     }
 
@@ -98,13 +96,13 @@ public class PlayerController : MonoBehaviour
             jumpSound.Play();
 
             isJump = true;
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
             jumpCount--;
             jumpPressed = false;
         }
         else if (jumpPressed && jumpCount > 0 && isJump)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce);
             jumpCount--;
             jumpPressed = false;
         }
@@ -120,9 +118,9 @@ public class PlayerController : MonoBehaviour
 
     private void GetHurt(Vector2 kickVelocity)
     {
-        rb.velocity = kickVelocity;
+        rigidBody.velocity = kickVelocity;
         hurtSound.Play();
-        anim.Play("Hurt");
+        animator.Play("Hurt");
         health -= 1;
 
         if (health == 0)
