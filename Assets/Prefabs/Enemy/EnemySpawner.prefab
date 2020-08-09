@@ -47,5 +47,5 @@ MonoBehaviour:
   enemyPrefab: {fileID: 8668654199569610835, guid: 19c120c876aea8242ad13316bd9e417a,
     type: 3}
   targetSpawnPoints: []
-  spawnNumPerRound: 1
+  spawnNumPerRound: 5
   oneRoundTime: 5
