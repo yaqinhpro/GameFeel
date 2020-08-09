@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Collider2D coll;
     private Animator anim;
     public AudioSource jumpSound;
+    public AudioSource hurtSound;
 
     public float speed;
     public float jumpForce;
@@ -19,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public bool isDashing;
     private bool jumpPressed;
     private int jumpCount;
+
+    public int health = 3;
 
     private float timeBtwShots = 0;
     public float startTimeBtwShots = 0.25f;
@@ -103,5 +106,31 @@ public class PlayerController : MonoBehaviour
             jumpCount--;
             jumpPressed = false;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Enemy")
+        {
+            GetHurt(new Vector2(collision.collider.transform.position.x - transform.position.x, jumpForce));
+        }
+    }
+
+    private void GetHurt(Vector2 kickVelocity)
+    {
+        rb.velocity = kickVelocity;
+        hurtSound.Play();
+        anim.Play("hurt");
+        health -= 1;
+
+        if (health == 0)
+        {
+            RestInPeace();
+        }
+    }
+
+    private void RestInPeace()
+    {
+
     }
 }
