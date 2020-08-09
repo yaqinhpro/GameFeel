@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     public AudioSource jumpSound;
     public AudioSource hurtSound;
+    public AudioSource gameOverSound;
 
     public float speed;
     public float jumpForce;
@@ -132,5 +133,6 @@ public class PlayerController : MonoBehaviour
     private void RestInPeace()
     {
         GameObject.Find("TimeManager").GetComponent<TimeManager>().SlowMotion();
+        gameOverSound.Play();
     }
 }
