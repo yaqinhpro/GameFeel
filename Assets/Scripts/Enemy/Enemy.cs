@@ -13,17 +13,17 @@ public class Enemy : MonoBehaviour
     public GameObject explosionPrefab;
 
     private bool isDead;
-    private Rigidbody2D rb;
-    private BoxCollider2D bc;
-    private Animator anim;
+    private Rigidbody2D rigidBody;
+    private BoxCollider2D boxCollider;
+    private Animator animator;
 
     private float waitCounter = 0;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        bc = GetComponent<BoxCollider2D>();
-        anim = GetComponent<Animator>();
+        rigidBody = GetComponent<Rigidbody2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -37,10 +37,10 @@ public class Enemy : MonoBehaviour
     void Movement()
     {
         int moveDirection = transform.position.x < target.position.x? 1 : -1;
-        rb.velocity = new Vector2(moveDirection * speed, rb.velocity.y);
+        rigidBody.velocity = new Vector2(moveDirection * speed, rigidBody.velocity.y);
         transform.localScale = new Vector3(-moveDirection, 1, 1);
 
-        anim.SetBool("isMoving", true);
+        animator.SetBool("isMoving", true);
     }
 
     public void TakeDamage(int damage, int hitterDirection, bool isExplosion)
@@ -65,14 +65,14 @@ public class Enemy : MonoBehaviour
     private void Die(int hitterDirection)
     {
         isDead = true;
-        rb.isKinematic = true;
-        rb.velocity = new Vector2(0, 0);
-        bc.enabled = false;
+        rigidBody.isKinematic = true;
+        rigidBody.velocity = new Vector2(0, 0);
+        boxCollider.enabled = false;
         GameObject deathEffect = Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
         Destroy(deathEffect, 0.5f);
 
-        anim.SetBool("isMoving", false);
-        anim.Play(hitterDirection > 0 ? "RightFallDeath" : "LeftFallDeath");
+        animator.SetBool("isMoving", false);
+        animator.Play(hitterDirection > 0 ? "RightFallDeath" : "LeftFallDeath");
 
         enemySpawner.EnemyDied();
 
