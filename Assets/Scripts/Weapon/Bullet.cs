@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
         transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
 
-    void DestroyBullet()
+    private void DestroyBullet()
     {
         GameObject destoryEffect = Instantiate(destroyEffectPrefab, transform.position, Quaternion.identity);
         Destroy(destoryEffect, 0.1f);

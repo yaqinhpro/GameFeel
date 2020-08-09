@@ -9,7 +9,7 @@ public class GameLogicManager : MonoBehaviour
     public CinemaMachineCameraShake cameraShake;
     public Player player;
 
-    void Start()
+    private void Start()
     {
         audioManager.OnGameOverSoundPlayed += Event_OnGameOverSoundPlayed;
         player.OnPlayerDied += Event_OnPlayerDied;

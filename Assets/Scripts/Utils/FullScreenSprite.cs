@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class FullScreenSprite : MonoBehaviour
 {
-    void Awake()
+    private void Awake()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
 

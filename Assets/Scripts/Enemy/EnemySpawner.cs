@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     public int spawnNumPerRound = 5;
     public int oneRoundTime = 5;
 
-    void Start()
+    private void Start()
     {
         InvokeRepeating("CreateEnemies", 0f, 3f);
     }

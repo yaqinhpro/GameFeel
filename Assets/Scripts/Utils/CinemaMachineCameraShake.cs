@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Cinemachine;
-using UnityEngine.Events;
 
 public class CinemaMachineCameraShake : MonoBehaviour
 {
@@ -16,13 +13,13 @@ public class CinemaMachineCameraShake : MonoBehaviour
     private CinemachineBasicMultiChannelPerlin virtualCameraNoise;
     private bool startShake = false;
 
-    void Start()
+    private void Start()
     {
         if (VirtualCamera != null)
             virtualCameraNoise = VirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
-    void Update()
+    private void Update()
     {
         if (startShake)
         {

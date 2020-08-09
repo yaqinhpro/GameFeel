@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -33,7 +32,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Movement()
+    private void Movement()
     {
         int moveDirection = transform.position.x < target.position.x? 1 : -1;
         rigidBody.velocity = new Vector2(moveDirection * speed, 0);
@@ -76,7 +75,7 @@ public class Enemy : MonoBehaviour
         StartCoroutine(DieInPeace());
     }
 
-    IEnumerator DieInPeace()
+    private IEnumerator DieInPeace()
     {
         Time.timeScale = 0;
         waitCounter = 0;

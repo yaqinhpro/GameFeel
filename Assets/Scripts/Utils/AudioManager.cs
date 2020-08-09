@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(WaitForSound(gameOverSound.clip));
     }
 
-    public IEnumerator WaitForSound(AudioClip Sound)
+    private IEnumerator WaitForSound(AudioClip Sound)
     {
         yield return new WaitUntil(() => gameOverSound.isPlaying == false);
         OnGameOverSoundPlayed.Invoke(this, EventArgs.Empty);

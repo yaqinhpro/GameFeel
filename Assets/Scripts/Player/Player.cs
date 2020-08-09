@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
         Jump();
     }
 
-    void GroundMovement()
+    private void GroundMovement()
     {
         moveDirection = Input.GetAxisRaw("Horizontal");
         if ((moveDirection == 1) || (moveDirection == -1))
@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Jump()
+    private void Jump()
     {
         if (isGround)
         {
