@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class UsedBullet : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private BoxCollider2D bc;
+    private Rigidbody2D rigidBody;
+    private BoxCollider2D boxCollider;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        bc = GetComponent<BoxCollider2D>();
+        rigidBody = GetComponent<Rigidbody2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == "Ground")
         {
-            rb.isKinematic = true;
-            rb.velocity = new Vector2(0, 0);
-            bc.enabled = false;
+            rigidBody.isKinematic = true;
+            rigidBody.velocity = new Vector2(0, 0);
+            boxCollider.enabled = false;
         }
     }
 }
