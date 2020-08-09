@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public EnemySpawner enemySpawner;
     public Transform target;
     public float speed;
 
@@ -73,8 +72,6 @@ public class Enemy : MonoBehaviour
 
         animator.SetBool("isMoving", false);
         animator.Play(hitterDirection > 0 ? "RightFallDeath" : "LeftFallDeath");
-
-        enemySpawner.EnemyDied();
 
         StartCoroutine(DieInPeace());
     }

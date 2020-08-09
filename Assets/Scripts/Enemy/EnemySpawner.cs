@@ -10,9 +10,6 @@ public class EnemySpawner : MonoBehaviour
     public int spawnNumPerRound = 5;
     public int oneRoundTime = 5;
 
-    private int totalActiveEnemiesNum = 0;
-
-    // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("CreateEnemies", 0f, 3f);
@@ -28,18 +25,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 Enemy enemyScript = Instantiate(enemyPrefab, targetSpawnPoints[i].position, Quaternion.identity).GetComponent<Enemy>();
                 enemyScript.target = enemyTarget;
-                enemyScript.enemySpawner = this;
-
-                totalActiveEnemiesNum += 1;
             }
-        }
-    }
-
-    public void EnemyDied()
-    {
-        if (totalActiveEnemiesNum > 0)
-        {
-            totalActiveEnemiesNum -= 1;
         }
     }
 }
