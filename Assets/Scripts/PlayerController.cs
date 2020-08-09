@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -134,5 +135,12 @@ public class PlayerController : MonoBehaviour
     {
         GameObject.Find("TimeManager").GetComponent<TimeManager>().SlowMotion();
         gameOverSound.Play();
+        StartCoroutine(WaitForSound(gameOverSound.clip));
+    }
+
+    public IEnumerator WaitForSound(AudioClip Sound)
+    {
+        yield return new WaitUntil(() => gameOverSound.isPlaying == false);
+        SceneManager.LoadScene(1);
     }
 }
