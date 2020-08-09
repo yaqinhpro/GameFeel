@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
         anim.SetBool("isMoving", true);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, int hitterDirection)
     {
         if (!isDead)
         {
@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
                 Destroy(deathEffect, 0.5f);
 
                 anim.SetBool("isMoving", false);
-                anim.Play(true? "LeftFallDeath" : "RightFallDeath");
+                anim.Play(hitterDirection > 0? "RightFallDeath" : "LeftFallDeath");
             }
         }
     }

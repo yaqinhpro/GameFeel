@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
     public float speed;
     public float lifeTime;
     public float distance;
@@ -27,7 +26,7 @@ public class Bullet : MonoBehaviour
         {
             if (hitInfo.collider.CompareTag("Enemy"))
             {
-                hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
+                hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage, transform.rotation.eulerAngles.z > 180? 1 : -1);
             }
             DestroyBullet();
         }
