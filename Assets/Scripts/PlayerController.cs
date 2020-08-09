@@ -131,6 +131,6 @@ public class PlayerController : MonoBehaviour
 
     private void RestInPeace()
     {
-
+        GameObject.Find("TimeManager").GetComponent<TimeManager>().SlowMotion();
     }
 }
