@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
 
     public float speed = 5;
     public int health = 2;
+    public float shootKickOffset = 1.5f;
 
     private Rigidbody2D rigidBody;
     private BoxCollider2D boxCollider;
@@ -55,6 +56,7 @@ public class Enemy : MonoBehaviour
                 Destroy(explosion, 0.5f);
             }
 
+            transform.position += hitterDirection * Vector3.right * shootKickOffset;
             health -= damage;
 
             if (health <= 0)
